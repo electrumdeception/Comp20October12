@@ -56,6 +56,7 @@ function getInput (){
 	var myInput;
 	myInput = prompt("please enter 5 nums with spaces", "1 1 1 1 1");
 	myInput.split(" "); 
+	document.write("<br> myinput split is: ",myInput,"<br>");
 	return myInput;
 }
 
