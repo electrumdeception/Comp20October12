@@ -9,16 +9,25 @@ function runProgram (){
 	var matchingNums;
 	var winnings;
 	randNums = fillArray(randNums);
-	document.write("testing", randNums);
+	
 	luckyBall = GetLucky();
-	document.write(luckyBall);
 	randNums = sortandDisplay(randNums);
-	document.write("testing", randNums);
+	addendum("lucky", luckyBall);
 	myInput = getInput(myInput);
 	luckyInput = prompt("please enter a lucky number", "14");
 	matchingNums = compareNumbers(luckyInput, luckyBall, randNums,myInput);
 	winnings = calculateWinnings(matchingNums, luckyInput, luckyBall);
-	return winnings;
+	addendum("winners", myInput);
+	addendum("luckyWin", luckyInput);
+	addendum("amountWon", winnings);
+	return;
+}
+
+function addendum(idIs, whichString)
+{
+	var newText = document.createTextNode(whichString);
+	var element = document.getElementById(idIs);
+	element.appendChild(newText);
 }
 
 //fills randNums with 5 random integers between 1 and 48
@@ -41,89 +50,98 @@ function GetLucky(){
 //sorts and display numbers
 function sortandDisplay (randNums){
 	randNums.sort(function(a, b){return a - b});
-	document.write("hello");
+	
 	var i;
+	var mixed = "";
 	for (i = 0; i < randNums.length; i++)
 	{
-		document.write("heres a number: \n");
-		document.write(randNums[i], ", ");
+		var textMine = randNums[i].toString();
+		mixed = mixed.concat(textMine,",");
 	}
+	
+		var displayReplace = document.createElement("p");
+		var newText = document.createTextNode(mixed);
+		displayReplace.appendChild(newText);
+		var element = document.getElementById("one");
+		element.appendChild(displayReplace);
+		
 		return randNums;
 }
 
 //get user input on winning lottery values
 function getInput (myInput){
+	var newPut;
 	myInput = prompt("please enter 5 nums with spaces", "1 1 1 1 1");
-	myInput.split(" "); 
-	document.write("<br> after split my first two are: ",myInput[0],"<br>", myInput[1],"<br>");
-	return myInput;
+	newPut = myInput.split(" "); 
+	return newPut;
 }
 
 
 //compare numbers
 function compareNumbers(luckyInput, luckyBall, randNums,myInput){
-var matching = 0;
-var j;
-var i;
-	document.write("<br> myinput split is now: ",myInput[0],"<br>", myInput[1],"<br>");
-document.write("randnums: ",randNums.length, " <br>");
-document.write("my input: ", myInput.length, " <br>");
-for (i = 0; i<randNums.length;i++){
-	for (j=0;j<myInput.length; j++){
-		
-		if (randNums[i]==myInput[j])
-		{
-			matching++;
+	var matching = 0;
+	var j;
+	var i;
+	for (i = 0; i<randNums.length;i++){
+		for (j=0;j<myInput.length; j++){
+
+			if (randNums[i]==myInput[j])
+			{
+				matching++;
+			}
 		}
 	}
-}
-	document.write("mattching: ", matching, "!!!");
-return matching;
+	return matching;
 }
 
 
 function calculateWinnings(matching, luckyNum, luckyBall){
+	var prize;
 if (luckyNum == luckyBall){
 	switch (matching){
       case 0:
-          document.write("You win $4");
+          prize ="You win $4";
           break;
       case 1:
-          document.write("You win $6")
+          prize ="You win $6";
           break;
       case 2:
-          document.write("You win $25")
+          prize ="You win $25";
           break;
       case 3:
-          document.write(" You win $150")
+          prize =" You win $150";
           break;
       case 4:
-          document.write("You win $5000");
+          prize ="You win $5000";
           break;
       case 5:
-          document.write("you win  $7,000 a WEEK for LIFE");
+          prize ="you win  $7,000 a WEEK for LIFE";
           break;
 		default:
-			document.write("You win NO MONEY!");
+			prize ="You win NO MONEY!";
+			break;
 	}
 }
 else {
 	switch (matching){
       case 2:
-          document.write("You win $2")
+          prize ="You win $2";
           break;
       case 3:
-          document.write(" You win $20")
+          prize =" You win $20";
           break;
       case 4:
-          document.write("You win $200");
+          prize ="You win $200";
           break;
       case 5:
-          document.write("you win  $25000 a year for LIFE");
+         prize ="you win  $25000 a year for LIFE";
           break;
 		default:
-			document.write("You win NO MONEY");
+			prize ="You win NO MONEY";
+			break;
 			
 	}
+	
 }
+	return prize;
 }
