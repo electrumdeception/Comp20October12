@@ -5,7 +5,7 @@ function runProgram (){
 	var randNums = [0,0,0,0,0];
 	var luckyBall;
 	var luckyInput;
-	var myInput;
+	var myInput = [0,0,0,0,0];
 	var matchingNums;
 	var winnings;
 	randNums = fillArray(randNums);
@@ -14,7 +14,7 @@ function runProgram (){
 	document.write(luckyBall);
 	randNums = sortandDisplay(randNums);
 	document.write("testing", randNums);
-	myInput = getInput();
+	myInput = getInput(myInput);
 	luckyInput = prompt("please enter a lucky number", "14");
 	matchingNums = compareNumbers(luckyInput, luckyBall, randNums,myInput);
 	winnings = calculateWinnings(matchingNums, luckyInput, luckyBall);
@@ -52,11 +52,10 @@ function sortandDisplay (randNums){
 }
 
 //get user input on winning lottery values
-function getInput (){
-	var myInput;
+function getInput (myInput){
 	myInput = prompt("please enter 5 nums with spaces", "1 1 1 1 1");
 	myInput.split(" "); 
-	document.write("<br> myinput split is: ",myInput,"<br>");
+	document.write("<br> after split my first two are: ",myInput[0],"<br>", myInput[1],"<br>");
 	return myInput;
 }
 
