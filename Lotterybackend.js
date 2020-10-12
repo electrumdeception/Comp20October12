@@ -39,9 +39,11 @@ function GetLucky(){
 //sorts and display numbers
 function sortandDisplay (randNums){
 	randNums.sort();
+	document.write("hello");
 	var i;
 	for (i = 0; i < randNums.length; i++)
 	{
+		document.write("heres a number: \n");
 		document.write(randNums[i], ", ");
 	}
 		return randNums;
