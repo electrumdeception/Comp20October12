@@ -40,7 +40,7 @@ function GetLucky(){
 
 //sorts and display numbers
 function sortandDisplay (randNums){
-	randNums.sort();
+	randNums.sort(function(a, b){return a - b});
 	document.write("hello");
 	var i;
 	for (i = 0; i < randNums.length; i++)
@@ -73,6 +73,7 @@ for (i = 0; i<randNums.length;i++){
 		}
 	}
 }
+	document.write("mattching: ", matching, "!!!");
 return matching;
 }
 
