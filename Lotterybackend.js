@@ -9,9 +9,11 @@ function runProgram (){
 	var matchingNums;
 	var winnings;
 	randNums = fillArray(randNums);
+	document.write("testing", randNums);
 	luckyBall = GetLucky();
 	document.write(luckyBall);
 	randNums = sortandDisplay(randNums);
+	document.write("testing", randNums);
 	myInput = getInput();
 	luckyInput = prompt("please enter a lucky number", "14");
 	matchingNums = compareNumbers(luckyInput, luckyBall, randNums,myInput);
