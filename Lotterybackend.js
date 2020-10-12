@@ -66,6 +66,7 @@ function compareNumbers(luckyInput, luckyBall, randNums,myInput){
 var matching = 0;
 var j;
 var i;
+	document.write("<br> myinput split is now: ",myInput,"<br>");
 document.write("randnums: ",randNums.length, " <br>");
 document.write("my input: ", myInput.length, " <br>");
 for (i = 0; i<randNums.length;i++){
