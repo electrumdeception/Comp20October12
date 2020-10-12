@@ -10,11 +10,12 @@ function runProgram (){
 	var winnings;
 	randNums = fillArray(randNums);
 	luckyBall = GetLucky();
+	document.write(luckyBall);
 	randNums = sortandDisplay(randNums);
 	myInput = getInput();
 	luckyInput = prompt("please enter a lucky number", "14");
 	matchingNums = compareNumbers(luckyInput, luckyBall, randNums,myInput);
-	winnings = calculateWinnings(matchingNums, luckyNum, luckyBall);
+	winnings = calculateWinnings(matchingNums, luckyInput, luckyBall);
 	return winnings;
 }
 
