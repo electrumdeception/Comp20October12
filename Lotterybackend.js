@@ -2,14 +2,17 @@
 
 
 function runProgram (){
+	//quick picks
 	var randNums = [0,0,0,0,0];
 	var luckyBall;
+	//the entered winners
 	var luckyInput;
 	var myInput = [0,0,0,0,0];
+	
 	var matchingNums;
 	var winnings;
-	randNums = fillArray(randNums);
 	
+	randNums = fillArray(randNums);
 	luckyBall = GetLucky();
 	randNums = sortandDisplay(randNums);
 	addendum("lucky", luckyBall);
@@ -59,11 +62,11 @@ function sortandDisplay (randNums){
 		mixed = mixed.concat(textMine,",");
 	}
 	
-		var displayReplace = document.createElement("p");
-		var newText = document.createTextNode(mixed);
-		displayReplace.appendChild(newText);
-		var element = document.getElementById("one");
-		element.appendChild(displayReplace);
+		addendum("selected", mixed);
+		//var newText = document.createTextNode(mixed);
+		//displayReplace.appendChild(newText);
+		//var element = document.getElementById("selected");
+		//element.appendChild(displayReplace);
 		
 		return randNums;
 }
@@ -71,7 +74,7 @@ function sortandDisplay (randNums){
 //get user input on winning lottery values
 function getInput (myInput){
 	var newPut;
-	myInput = prompt("please enter 5 nums with spaces", "1 1 1 1 1");
+	myInput = prompt("please enter the 5 winning #s with spaces", "1 1 1 1 1");
 	newPut = myInput.split(" "); 
 	return newPut;
 }
@@ -100,44 +103,44 @@ function calculateWinnings(matching, luckyNum, luckyBall){
 if (luckyNum == luckyBall){
 	switch (matching){
       case 0:
-          prize ="You win $4";
+          prize ="$4";
           break;
       case 1:
-          prize ="You win $6";
+          prize ="$6";
           break;
       case 2:
-          prize ="You win $25";
+          prize ="$25";
           break;
       case 3:
-          prize =" You win $150";
+          prize ="$150";
           break;
       case 4:
-          prize ="You win $5000";
+          prize ="$5000";
           break;
       case 5:
-          prize ="you win  $7,000 a WEEK for LIFE";
+          prize ="$7,000 a WEEK for LIFE";
           break;
 		default:
-			prize ="You win NO MONEY!";
+			prize ="NO MONEY!";
 			break;
 	}
 }
 else {
 	switch (matching){
       case 2:
-          prize ="You win $2";
+          prize ="$2";
           break;
       case 3:
-          prize =" You win $20";
+          prize ="$20";
           break;
       case 4:
-          prize ="You win $200";
+          prize ="$200";
           break;
       case 5:
-         prize ="you win  $25000 a year for LIFE";
+         prize ="$25000 a year for LIFE";
           break;
 		default:
-			prize ="You win NO MONEY";
+			prize ="NO MONEY";
 			break;
 			
 	}
